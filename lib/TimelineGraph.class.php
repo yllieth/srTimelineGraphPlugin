@@ -45,7 +45,7 @@ class TimelineGraph extends GraphConf {
 	 * @return TimelineGraph <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
-	public function setTimestamps(Array $timestamp = array()) 
+	public function setTimestamps(Array $timestamp) 
 	{
 		$this->checkTimestamps($timestamp);
 		$this->timestamp = $timestamp;
@@ -118,7 +118,15 @@ class TimelineGraph extends GraphConf {
 	// ###                                      FONCTIONS PUBLIQUES                                      ###
 	// #####################################################################################################
 	
-	
+	/**
+	 * Déclenche la génération du graphique.
+	 * 
+	 * Cette fonction doit IMPERATIVEMENT être appelée APRES <code>load_google_javascripts()</code> 
+	 * pour pouvoir utiliser sans problèmes le code Javascript.
+	 * 
+	 * @throws TimelineGraphException si on ne sait pas dans quelle(s) div(s) insérer le graphique (et le tableau de valeurs)
+	 * @author Sylvain
+	 */
 	public function render()
 	{
 		if ($this->hasGraphDivId() === false && $this->hasTableDivId() === false) {
@@ -132,6 +140,17 @@ class TimelineGraph extends GraphConf {
 		echo "<script type='text/javascript'>timelineGrapher(" . $js_datas . ",'" . $js_graph_div . "','" . $js_table_div . "');</script>";
 	}
 	
+	/**
+	 * Insère, dans la page web, les scripts nécessaires à l'affichage du graphique.
+	 * 
+	 * Cette fonction doit IMPERATIVEMENT être appelée AVANT <code>render()</code> 
+	 * car elle permet de pouvoir instancier les objets Javascript requis.
+	 * 
+	 * @param  string $graph_div
+	 * @param  string $table_div
+	 * @return TimelineGraph
+	 * @author Sylvain
+	 */
 	public function load_google_javascripts($graph_div = null, $table_div = null)
 	{
 		$this->setGraphDivId($graph_div);
@@ -148,6 +167,11 @@ class TimelineGraph extends GraphConf {
 		return $this;
 	}
 	
+	/**
+	 * Affiche la configuration du graphique pour essayer d'y voir plus clair
+	 * 
+	 * @author Sylvain {06/03/2013}
+	 */
 	public function debug()
 	{
 		var_dump($this->renderConfig());
@@ -188,20 +212,26 @@ class TimelineGraph extends GraphConf {
 	
 	/**
 	 * Renvoie la configuration du graphique sous la forme d'un tableau. 
-	 * Ce tableau, une fois encodé en JSON sera décodé par les fonctions javascript du fichier graph.js afin de réaliser les appels aux API Google.
 	 * 
-	 * @return array
+	 * Ce tableau, une fois encodé en JSON sera décodé par les fonctions 
+	 * javascript du fichier graph.js afin de réaliser les appels aux API Google.
+	 * 
+	 * @param  boolean $json [FACULTATIF - DEFAULT: false] Indique sin on souhaite le résultat en PHP (<code>false</code>) ou en JSON (<code>true</code>)
+	 * @return array|string Configuration du graphique en PHP ou en JSON
 	 * @author Sylvain {20/02/2013}
 	 */
-	private function renderConfig()
+	private function renderConfig($json = false)
 	{
-		return array(
-			'values'     => $this->getValues(),
-			'timestamps' => $this->getTimestamps(),
-			'milestones' => $this->getMilestones(),
-			'graphConfs' => $this->getGraphOptions(),
-			'tableConfs' => $this->getTableOptions(),
-		);
+		if ($json === false)
+			return array(
+				'values'     => $this->getValues(),
+				'timestamps' => $this->getTimestamps(),
+				'milestones' => $this->getMilestones(),
+				'graphConfs' => $this->getGraphOptions(),
+				'tableConfs' => $this->getTableOptions(),
+			);
+		else
+			return json_encode($this->renderConfig (false));
 	}
 	
 	// #####################################################################################################

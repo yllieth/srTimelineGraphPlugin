@@ -177,7 +177,14 @@ class TimelineGraphOptions {
 	
 	
 	/**
-	 * Le constructeur permet de définir des options par défaut
+	 * Le constructeur permet de définir des options par défaut.
+	 * 
+	 * <ul>
+	 *  <li>Affichage des annotations : <b>oui</b></li>
+	 *  <li>Affichage du sélecteur d'échelle (le truc bizarre en dessous) : <b>non</b></li>
+	 *  <li>Affichage des valeurs exactes : <b>oui</b></li>
+	 *  <li>Zone de zoom : <b>1 an à partir de maintenant</b></li>
+	 * </ul>
 	 * 
 	 * @return TimelineGraphOptions
 	 * @author Sylvain {20/02/2013}
@@ -192,9 +199,18 @@ class TimelineGraphOptions {
 	}
 	
 	/**
+	 * Configure les options du graphique.
 	 * 
-	 * @param array $options
-	 * @return \TimelineGraphOptions
+	 * Des options par défaut sont déjà prédéfinies (mais être être écrasées) :
+	 * <ul>
+	 *  <li>Affichage des annotations : <b>oui</b></li>
+	 *  <li>Affichage du sélecteur d'échelle (le truc bizarre en dessous) : <b>non</b></li>
+	 *  <li>Affichage des valeurs exactes : <b>oui</b></li>
+	 *  <li>Zone de zoom : <b>1 an à partir de maintenant</b></li>
+	 * </ul>
+	 * 
+	 * @return TimelineGraphOptions
+	 * @author Sylvain
 	 */
 	public static function create() { return new TimelineGraphOptions(); }
 	
