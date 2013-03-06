@@ -338,6 +338,25 @@ class TimelineGraphOptions {
 	 */
 	private function getModified() { return $this->modified; }
 	
+	private function throw_exception($optionName, $expected, $given)
+	{
+		if     (is_null($given))	$givenClass = "null";
+		elseif (is_numeric($given))	$givenClass = "int";
+		elseif (is_string($given))	$givenClass = "string";
+		elseif (is_bool($given))	$givenClass = "boolean";
+		elseif (is_array($given))	$givenClass = "array";
+		elseif (is_object($given))	$givenClass = get_class($given);
+		
+		throw new TimelineGraphException(
+					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
+							$optionName,
+							$expected,
+							$givenClass,
+							$given
+					)
+			);
+	}
+	
 	// ########################################################################
 	// ###                            ACCESSEURS                            ###
 	// ########################################################################
@@ -359,14 +378,7 @@ class TimelineGraphOptions {
 			$this->allowHTML = (bool) $allow_html;
 			$this->setModified('allowHTML');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'allowHTML',
-							'un booléen {true, false}',
-							get_class($allow_html),
-							$allow_html
-					)
-			);
+			$this->throw_exception('allowHTML', "un booléen {true, false}", $allow_html);
 		}
 		
 		return $this;
@@ -395,14 +407,7 @@ class TimelineGraphOptions {
 			$this->allowRedraw = (bool) $allow_redraw;
 			$this->setModified('allowRedraw');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'allowRedraw',
-							'un booléen {true, false}',
-							get_class($allow_redraw),
-							$allow_redraw
-					)
-			);
+			$this->throw_exception('allowRedraw', "un booléen {true, false}", $allow_redraw);
 		}
 		
 		return $this;
@@ -424,14 +429,7 @@ class TimelineGraphOptions {
 			$this->allValuesSuffix = $suffixe;
 			$this->setModified('allValuesSuffix');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'allValuesSuffix',
-							'une chaîne de caratères',
-							get_class($suffixe),
-							$suffixe
-					)
-			);
+			$this->throw_exception('allValuesSuffix', "une chaîne de caratères", $suffixe);
 		}
 		
 		return $this;
@@ -454,14 +452,7 @@ class TimelineGraphOptions {
 			$this->annotationsWidth = (int) $pourcentage;
 			$this->setModified('annotationsWidth');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'annotationsWidth',
-							'un entier compris entre 5 et 80',
-							get_class($pourcentage),
-							$pourcentage
-					)
-			);
+			$this->throw_exception('annotationsWidth', "un entier [5 .. 80]", $pourcentage);
 		}
 		
 		return $this;
@@ -484,14 +475,7 @@ class TimelineGraphOptions {
 			$this->colors = (int) $liste_de_couleurs;
 			$this->setModified('colors');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'colors',
-							'un tableau contenant des noms de couleurs HTML valides',
-							get_class($liste_de_couleurs),
-							implode(', ', $liste_de_couleurs)
-					)
-			);
+			$this->throw_exception('colors', "un tableau contenant des noms de couleurs HTML valides", $liste_de_couleurs);
 		}
 		
 		return $this;
@@ -516,14 +500,7 @@ class TimelineGraphOptions {
 			$this->dateFormat = $format;
 			$this->setModified('dateFormat');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'dateFormat',
-							'un tableau contenant des noms de couleurs HTML valides',
-							get_class($format),
-							$format
-					)
-			);
+			$this->throw_exception('dateFormat', "un tableau contenant des noms de couleurs HTML valides", $format);
 		}
 		
 		return $this;
@@ -546,14 +523,7 @@ class TimelineGraphOptions {
 			$this->displayAnnotations = $displayAnnotations;
 			$this->setModified('displayAnnotations');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'displayAnnotations',
-							'un booléen {true, false}',
-							get_class($displayAnnotations),
-							$displayAnnotations
-					)
-			);
+			$this->throw_exception('displayAnnotations', "un booléen {true, false}", $displayAnnotations);
 		}
 		
 		return $this;
@@ -576,14 +546,7 @@ class TimelineGraphOptions {
 			$this->displayAnnotationsFilter = $displayAnnotationsFilter;
 			$this->setModified('displayAnnotationsFilter');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'displayAnnotationsFilter',
-							'un booléen {true, false}',
-							get_class($displayAnnotationsFilter),
-							$displayAnnotationsFilter
-					)
-			);
+			$this->throw_exception('displayAnnotationsFilter', "un booléen {true, false}", $displayAnnotationsFilter);
 		}
 		
 		return $this;
@@ -605,14 +568,7 @@ class TimelineGraphOptions {
 			$this->displayDateBarSeparator = $displayDateBarSeparator;
 			$this->setModified('displayDateBarSeparator');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'displayDateBarSeparator',
-							'un booléen {true, false}',
-							get_class($displayDateBarSeparator),
-							$displayDateBarSeparator
-					)
-			);
+			$this->throw_exception('displayDateBarSeparator', "un booléen {true, false}", $displayDateBarSeparator);
 		}
 		
 		return $this;
@@ -635,14 +591,7 @@ class TimelineGraphOptions {
 			$this->displayExactValues = $displayExactValues;
 			$this->setModified('displayExactValues');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'displayExactValues',
-							'un booléen {true, false}',
-							get_class($displayExactValues),
-							$displayExactValues
-					)
-			);
+			$this->throw_exception('displayExactValues', "un booléen {true, false}", $displayExactValues);
 		}
 		
 		return $this;
@@ -664,14 +613,7 @@ class TimelineGraphOptions {
 			$this->displayLegendDots = $displayLegendDots;
 			$this->setModified('displayLegendDots');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'displayLegendDots',
-							'un booléen {true, false}',
-							get_class($displayLegendDots),
-							$displayLegendDots
-					)
-			);
+			$this->throw_exception('displayLegendDots', "un booléen {true, false}", $displayLegendDots);
 		}
 		
 		return $this;
@@ -693,14 +635,7 @@ class TimelineGraphOptions {
 			$this->displayLegendValues = $displayLegendValues;
 			$this->setModified('displayLegendValues');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'displayLegendValues',
-							'un booléen {true, false}',
-							get_class($displayLegendValues),
-							$displayLegendValues
-					)
-			);
+			$this->throw_exception('displayLegendValues', "un booléen {true, false}", $displayLegendValues);
 		}
 		
 		return $this;
@@ -723,14 +658,7 @@ class TimelineGraphOptions {
 			$this->displayRangeSelector = $displayRangeSelector;
 			$this->setModified('displayRangeSelector');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'displayRangeSelector',
-							'un booléen {true, false}',
-							get_class($displayRangeSelector),
-							$displayRangeSelector
-					)
-			);
+			$this->throw_exception('displayRangeSelector', "un booléen {true, false}", $displayRangeSelector);
 		}
 		
 		return $this;
@@ -752,14 +680,7 @@ class TimelineGraphOptions {
 			$this->displayZoomButtons = $displayZoomButtons;
 			$this->setModified('displayZoomButtons');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'displayZoomButtons',
-							'un booléen {true, false}',
-							get_class($displayZoomButtons),
-							$displayZoomButtons
-					)
-			);
+			$this->throw_exception('displayZoomButtons', "un booléen {true, false}", $displayZoomButtons);
 		}
 		
 		return $this;
@@ -777,20 +698,13 @@ class TimelineGraphOptions {
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
-	public function setOpacity($pourcentage)
+	public function setFill($pourcentage)
 	{
 		if (is_numeric($pourcentage) && $pourcentage >= 0 && $pourcentage <= 100) {
 			$this->fill = (int) $pourcentage;
 			$this->setModified('fill');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'fill',
-							'un entier compris entre 0 et 100',
-							get_class($pourcentage),
-							$pourcentage
-					)
-			);
+			$this->throw_exception('fill', "un entier [0 .. 100]", $pourcentage);
 		}
 		
 		return $this;
@@ -815,14 +729,7 @@ class TimelineGraphOptions {
 			$this->highlightDot = $highlightDot;
 			$this->setModified('highlightDot');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'highlightDot',
-							'une des chaines de caractères suivantes {"nearest", "last"}',
-							get_class($highlightDot),
-							$highlightDot
-					)
-			);
+			$this->throw_exception('highlightDot', "une des chaines de caractères suivantes {'nearest', 'last'}", $highlightDot);
 		}
 		
 		return $this;
@@ -844,14 +751,7 @@ class TimelineGraphOptions {
 			$this->legendPosition = $position;
 			$this->setModified('legendPosition');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'legendPosition',
-							'une des chaines de caractères suivantes {"sameRow", "newRow"}',
-							get_class($position),
-							$position
-					)
-			);
+			$this->throw_exception('legendPosition', "une des chaines de caractères suivantes {'sameRow', 'newRow'}", $position);
 		}
 		
 		return $this;
@@ -875,14 +775,7 @@ class TimelineGraphOptions {
 			$this->max = (int) $max;
 			$this->setModified('max');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'max',
-							'un entier',
-							get_class($max),
-							$max
-					)
-			);
+			$this->throw_exception('max', "un entier", $max);
 		}
 		
 		return $this;
@@ -906,14 +799,7 @@ class TimelineGraphOptions {
 			$this->min = (int) $min;
 			$this->setModified('min');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'min',
-							'un entier',
-							get_class($min),
-							$min
-					)
-			);
+			$this->throw_exception('min', "un entier", $min);
 		}
 		
 		return $this;
@@ -943,14 +829,7 @@ class TimelineGraphOptions {
 			$this->numberFormats = $format;
 			$this->setModified('numberFormats');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'numberFormats',
-							'un tableau contenant des noms de couleurs HTML valides',
-							get_class($format),
-							$format
-					)
-			);
+			$this->throw_exception('numberFormats', "un tableau contenant des noms de couleurs HTML valides", $format);
 		}
 		
 		return $this;
@@ -979,18 +858,11 @@ class TimelineGraphOptions {
 	 */
 	public function setScaleColumns(Array $colonnes)
 	{
-		if (is_array($colonnes)) {
+		if (is_array($colonnes) && count($colonnes) < 3) {
 			$this->scaleColumns = $colonnes;
 			$this->setModified('scaleColumns');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'scaleColummns',
-							'un tableau contenant des noms de couleurs HTML valides',
-							get_class($colonnes),
-							$colonnes
-					)
-			);
+			$this->throw_exception('scaleColumns', "un tableau contenant les index des courbes à placer (max 3)", $colonnes);
 		}
 		
 		return $this;
@@ -1028,14 +900,7 @@ class TimelineGraphOptions {
 			$this->scaleType = $scaleType;
 			$this->setModified('scaleType');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'scaleType',
-							'une des chaines de caractères suivantes {"maximized", "fixed", "allmaximized", "allfixed"}',
-							get_class($scaleType),
-							$scaleType
-					)
-			);
+			$this->throw_exception('scaleType', 'une des chaines de caractères suivantes {"maximized", "fixed", "allmaximized", "allfixed"}', $scaleType);
 		}
 		
 		return $this;
@@ -1057,14 +922,7 @@ class TimelineGraphOptions {
 			$this->thickness = (int) $epaisseur;
 			$this->setModified('thickness');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'thickness',
-							'un entier compris entre 0 et 10',
-							get_class($epaisseur),
-							$epaisseur
-					)
-			);
+			$this->throw_exception('thickness', "un entier [0 .. 10]", $epaisseur);
 		}
 		
 		return $this;
@@ -1086,14 +944,7 @@ class TimelineGraphOptions {
 			$this->wmode = $wmode;
 			$this->setModified('wmode');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'wmode',
-							'une des chaines de caractères suivantes {"opaque", "window", "transparent"}',
-							get_class($wmode),
-							$wmode
-					)
-			);
+			$this->throw_exception('wmode', 'une des chaines de caractères suivantes {"opaque", "window", "transparent"}', $wmode);
 		}
 		
 		return $this;
@@ -1115,14 +966,7 @@ class TimelineGraphOptions {
 			$this->zoomEndTime = (int) $unix_timestamp;
 			$this->setModified('zoomEndTime');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'zoomEndTime',
-							'un entier (timestamp UNIX)',
-							get_class($unix_timestamp),
-							$unix_timestamp
-					)
-			);
+			$this->throw_exception('zoomEndTime', 'un entier (timestamp UNIX)', $unix_timestamp);
 		}
 		
 		return $this;
@@ -1144,14 +988,7 @@ class TimelineGraphOptions {
 			$this->zoomStartTime = (int) $unix_timestamp;
 			$this->setModified('zoomStartTime');
 		} else {
-			throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							'zoomStartTime',
-							'un entier (timestamp UNIX)',
-							get_class($unix_timestamp),
-							$unix_timestamp
-					)
-			);
+			$this->throw_exception('zoomStartTime', 'un entier (timestamp UNIX)', $unix_timestamp);
 		}
 		
 		return $this;
