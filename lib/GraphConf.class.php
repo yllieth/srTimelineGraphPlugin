@@ -74,7 +74,7 @@ abstract class GraphConf{
 	public    function setGraphOptions($graphOptions) { $this->graphOptions = $graphOptions; return $this; }
 	
 	protected function getTableOptions() { return $this->tableOptions; }
-	public    function setTableOptions(Array $tableOptions = array())  { $this->tableOptions = $tableOptions; return $this; }
+	public    function setTableOptions($tableOptions)  { $this->tableOptions = $tableOptions; return $this; }
 	
 	protected function setGraphDivId($id) { $this->graphDivId = $id; }
 	protected function getGraphDivId()    { return $this->graphDivId; }

@@ -106,7 +106,26 @@ class TimelineGraph extends GraphConf {
 		if ($graphOptions instanceof TimelineGraphOptions) {
 			return parent::setGraphOptions($graphOptions->toArray());
 		} else {
-			throw new TimelineGraphException("TimelineGraph::setGraphOptions only accepts TimelineGraphOptions in parameter");
+			throw new TimelineGraphException("TimelineGraph::setGraphOptions only accepts TimelineGraphOptions");
+		}
+		
+		return $this;
+	}
+	
+	/**
+	 * Définit les options du tableau de valeurs.
+	 * 
+	 * @param  $tableOptions $graphOptions
+	 * @throws TimelineGraphException
+	 * @return TimelineGraph <em>fluent interface</em>
+	 * @author Sylvain {10/03/2013}
+	 */
+	public function setTableOptions($tableOptions) 
+	{
+		if ($tableOptions instanceof TimelineTableOptions) {
+			return parent::setTableOptions($tableOptions->toArray());
+		} else {
+			throw new TimelineGraphException("TimelineGraph::setTableOptions only accepts TimelineTableOptions");
 		}
 		
 		return $this;

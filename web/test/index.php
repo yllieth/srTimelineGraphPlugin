@@ -16,12 +16,17 @@
 
 	$graphConf = TimelineGraphOptions::create()
 		->setScaleColumns(array(0,1))
-		->setScaleType('allmaimized')
+		->setScaleType('allmaximized')
 		->setDisplayAnnotations(false)
 		->removeOption('zoomStartTime');
+	
+	$tableConf = TimelineTableOptions::create()
+		->setSortAscending(false)
+		->setWidth('400px');
 
 	$graph = TimelineGraph::create()
 		->setGraphOptions($graphConf)
+		->setTableOptions($tableConf)
 		->setTimestamps($ts)
 		->setValues(array('serie1' => $v1, 'serie2' => $v2))
 		->setMilestones($ms);

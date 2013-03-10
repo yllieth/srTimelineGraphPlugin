@@ -275,7 +275,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  boolean $allow_html
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -304,7 +304,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  boolean $allow_redraw
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -326,7 +326,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  string $suffix
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -349,7 +349,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  int $pourcentage
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -372,7 +372,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  array $liste_de_couleurs
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -397,7 +397,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    http://icu-project.org/apiref/icu4j/com/ibm/icu/text/SimpleDateFormat.html
 	 * 
 	 * @param  string $format
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -420,7 +420,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  boolean displayAnnotations
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -443,7 +443,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  boolean displayAnnotationsFilter
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -465,7 +465,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  boolean displayDateBarSeparator
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -488,7 +488,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  boolean displayExactValues
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -510,7 +510,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  boolean displayLegendDots
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -532,7 +532,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  boolean displayLegendValues
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -555,7 +555,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  boolean displayRangeSelector
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -577,7 +577,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  boolean displayZoomButtons
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -601,7 +601,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  int $pourcentage
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -626,7 +626,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  string $highlightDot {"nearest", "last"}
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -648,7 +648,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  string $position {"sameRow", "newRow"}
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -672,7 +672,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  int $max
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -696,7 +696,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  int $min
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -726,7 +726,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    http://icu-project.org/apiref/icu4j/com/ibm/icu/text/DecimalFormat.html
 	 * 
 	 * @param  string $format
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -759,7 +759,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  array $colonnes
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -797,7 +797,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  string $scaleType {'maximized', 'fixed', 'allmaximized', 'allfixed'}
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -819,7 +819,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  int $epaisseur Compris entre 0 et 10
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -841,7 +841,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  string $wmode {"opaque", "window", "transparent"}
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -863,7 +863,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  int $timestamp
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
@@ -885,7 +885,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 * @see    https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr
 	 * 
 	 * @param  int $timestamp
-	 * @throws TimelineGraphException
+	 * @throws TimelineOptionException
 	 * @return TimelineGraphOptions <em>fluent interface</em>
 	 * @author Sylvain {20/02/2013}
 	 */
