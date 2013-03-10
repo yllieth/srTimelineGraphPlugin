@@ -101,29 +101,11 @@ abstract class TimelineOptions {
 		return $this->modified;
 	}
 	
-	protected function throw_exception($optionName, $expected, $given)
-	{
-		if     (is_null($given))	$givenClass = "null";
-		elseif (is_numeric($given))	$givenClass = "int";
-		elseif (is_string($given))	$givenClass = "string";
-		elseif (is_bool($given))	$givenClass = "boolean";
-		elseif (is_array($given))	$givenClass = "array";
-		elseif (is_object($given))	$givenClass = get_class($given);
-		
-		throw new TimelineGraphException(
-					sprintf("L'option [%s] doit être %s et non [(%s) %s].",
-							$optionName,
-							$expected,
-							$givenClass,
-							$given
-					)
-			);
-	}
-	
 	
 	// ########################################################################
 	// ###                       FONCTIONS ABSTRAITES                       ###
 	// ########################################################################
+	
 	
 	/**
 	 * Renvoie la liste des options autorisées et reconnues par Google.
@@ -141,5 +123,6 @@ abstract class TimelineOptions {
 	 * @author Sylvain {20/02/2013}
 	 */
 	abstract public function toArray();
+	
 }
 ?>

@@ -285,7 +285,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->allowHTML = (bool) $allow_html;
 			$this->setModified('allowHTML');
 		} else {
-			$this->throw_exception('allowHTML', "un booléen {true, false}", $allow_html);
+			throw new TimelineOptionException(array('allowHTML', "un booleen {true, false}", $allow_html));
 		}
 		
 		return $this;
@@ -314,7 +314,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->allowRedraw = (bool) $allow_redraw;
 			$this->setModified('allowRedraw');
 		} else {
-			$this->throw_exception('allowRedraw', "un booléen {true, false}", $allow_redraw);
+			throw new TimelineOptionException(array('allowRedraw', "un booleen {true, false}", $allow_redraw));
 		}
 		
 		return $this;
@@ -336,7 +336,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->allValuesSuffix = $suffixe;
 			$this->setModified('allValuesSuffix');
 		} else {
-			$this->throw_exception('allValuesSuffix', "une chaîne de caratères", $suffixe);
+			throw new TimelineOptionException(array('allValuesSuffix', "une chaine de carateres", $suffixe));
 		}
 		
 		return $this;
@@ -359,7 +359,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->annotationsWidth = (int) $pourcentage;
 			$this->setModified('annotationsWidth');
 		} else {
-			$this->throw_exception('annotationsWidth', "un entier [5 .. 80]", $pourcentage);
+			throw new TimelineOptionException(array('annotationsWidth', "un entier [5 .. 80]", $pourcentage));
 		}
 		
 		return $this;
@@ -382,7 +382,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->colors = (int) $liste_de_couleurs;
 			$this->setModified('colors');
 		} else {
-			$this->throw_exception('colors', "un tableau contenant des noms de couleurs HTML valides", $liste_de_couleurs);
+			throw new TimelineOptionException(array('colors', "un tableau contenant des noms de couleurs HTML valides", $liste_de_couleurs));
 		}
 		
 		return $this;
@@ -407,7 +407,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->dateFormat = $format;
 			$this->setModified('dateFormat');
 		} else {
-			$this->throw_exception('dateFormat', "un tableau contenant des noms de couleurs HTML valides", $format);
+			throw new TimelineOptionException(array('dateFormat', "un tableau contenant des noms de couleurs HTML valides", $format));
 		}
 		
 		return $this;
@@ -430,7 +430,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->displayAnnotations = $displayAnnotations;
 			$this->setModified('displayAnnotations');
 		} else {
-			$this->throw_exception('displayAnnotations', "un booléen {true, false}", $displayAnnotations);
+			throw new TimelineOptionException(array('displayAnnotations', "un booleen {true, false}", $displayAnnotations));
 		}
 		
 		return $this;
@@ -453,7 +453,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->displayAnnotationsFilter = $displayAnnotationsFilter;
 			$this->setModified('displayAnnotationsFilter');
 		} else {
-			$this->throw_exception('displayAnnotationsFilter', "un booléen {true, false}", $displayAnnotationsFilter);
+			throw new TimelineOptionException(array('displayAnnotationsFilter', "un booleen {true, false}", $displayAnnotationsFilter));
 		}
 		
 		return $this;
@@ -475,7 +475,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->displayDateBarSeparator = $displayDateBarSeparator;
 			$this->setModified('displayDateBarSeparator');
 		} else {
-			$this->throw_exception('displayDateBarSeparator', "un booléen {true, false}", $displayDateBarSeparator);
+			throw new TimelineOptionException(array('displayDateBarSeparator', "un booleen {true, false}", $displayDateBarSeparator));
 		}
 		
 		return $this;
@@ -498,7 +498,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->displayExactValues = $displayExactValues;
 			$this->setModified('displayExactValues');
 		} else {
-			$this->throw_exception('displayExactValues', "un booléen {true, false}", $displayExactValues);
+			throw new TimelineOptionException(array('displayExactValues', "un booleen {true, false}", $displayExactValues));
 		}
 		
 		return $this;
@@ -520,7 +520,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->displayLegendDots = $displayLegendDots;
 			$this->setModified('displayLegendDots');
 		} else {
-			$this->throw_exception('displayLegendDots', "un booléen {true, false}", $displayLegendDots);
+			throw new TimelineOptionException(array('displayLegendDots', "un booleen {true, false}", $displayLegendDots));
 		}
 		
 		return $this;
@@ -542,7 +542,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->displayLegendValues = $displayLegendValues;
 			$this->setModified('displayLegendValues');
 		} else {
-			$this->throw_exception('displayLegendValues', "un booléen {true, false}", $displayLegendValues);
+			throw new TimelineOptionException(array('displayLegendValues', "un booleen {true, false}", $displayLegendValues));
 		}
 		
 		return $this;
@@ -565,7 +565,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->displayRangeSelector = $displayRangeSelector;
 			$this->setModified('displayRangeSelector');
 		} else {
-			$this->throw_exception('displayRangeSelector', "un booléen {true, false}", $displayRangeSelector);
+			throw new TimelineOptionException(array('displayRangeSelector', "un booleen {true, false}", $displayRangeSelector));
 		}
 		
 		return $this;
@@ -587,7 +587,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->displayZoomButtons = $displayZoomButtons;
 			$this->setModified('displayZoomButtons');
 		} else {
-			$this->throw_exception('displayZoomButtons', "un booléen {true, false}", $displayZoomButtons);
+			throw new TimelineOptionException(array('displayZoomButtons', "un booleen {true, false}", $displayZoomButtons));
 		}
 		
 		return $this;
@@ -611,7 +611,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->fill = (int) $pourcentage;
 			$this->setModified('fill');
 		} else {
-			$this->throw_exception('fill', "un entier [0 .. 100]", $pourcentage);
+			throw new TimelineOptionException(array('fill', "un entier [0 .. 100]", $pourcentage));
 		}
 		
 		return $this;
@@ -636,7 +636,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->highlightDot = $highlightDot;
 			$this->setModified('highlightDot');
 		} else {
-			$this->throw_exception('highlightDot', "une des chaines de caractères suivantes {'nearest', 'last'}", $highlightDot);
+			throw new TimelineOptionException(array('highlightDot', "une des chaines de caracteres suivantes {'nearest', 'last'}", $highlightDot));
 		}
 		
 		return $this;
@@ -658,7 +658,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->legendPosition = $position;
 			$this->setModified('legendPosition');
 		} else {
-			$this->throw_exception('legendPosition', "une des chaines de caractères suivantes {'sameRow', 'newRow'}", $position);
+			throw new TimelineOptionException(array('legendPosition', "une des chaines de caracteres suivantes {'sameRow', 'newRow'}", $position));
 		}
 		
 		return $this;
@@ -682,7 +682,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->max = (int) $max;
 			$this->setModified('max');
 		} else {
-			$this->throw_exception('max', "un entier", $max);
+			throw new TimelineOptionException(array('max', "un entier", $max));
 		}
 		
 		return $this;
@@ -706,7 +706,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->min = (int) $min;
 			$this->setModified('min');
 		} else {
-			$this->throw_exception('min', "un entier", $min);
+			throw new TimelineOptionException(array('min', "un entier", $min));
 		}
 		
 		return $this;
@@ -736,7 +736,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->numberFormats = $format;
 			$this->setModified('numberFormats');
 		} else {
-			$this->throw_exception('numberFormats', "un tableau contenant des noms de couleurs HTML valides", $format);
+			throw new TimelineOptionException(array('numberFormats', "un tableau contenant des noms de couleurs HTML valides", $format));
 		}
 		
 		return $this;
@@ -769,7 +769,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->scaleColumns = $colonnes;
 			$this->setModified('scaleColumns');
 		} else {
-			$this->throw_exception('scaleColumns', "un tableau contenant les index des courbes à placer (max 3)", $colonnes);
+			throw new TimelineOptionException(array('scaleColumns', "un tableau contenant les index des courbes à placer (max 3)", $colonnes));
 		}
 		
 		return $this;
@@ -807,7 +807,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->scaleType = $scaleType;
 			$this->setModified('scaleType');
 		} else {
-			$this->throw_exception('scaleType', 'une des chaines de caractères suivantes {"maximized", "fixed", "allmaximized", "allfixed"}', $scaleType);
+			throw new TimelineOptionException(array('scaleType', 'une des chaines de caracteres suivantes {"maximized", "fixed", "allmaximized", "allfixed"}', $scaleType));
 		}
 		
 		return $this;
@@ -829,7 +829,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->thickness = (int) $epaisseur;
 			$this->setModified('thickness');
 		} else {
-			$this->throw_exception('thickness', "un entier [0 .. 10]", $epaisseur);
+			throw new TimelineOptionException(array('thickness', "un entier [0 .. 10]", $epaisseur));
 		}
 		
 		return $this;
@@ -851,7 +851,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->wmode = $wmode;
 			$this->setModified('wmode');
 		} else {
-			$this->throw_exception('wmode', 'une des chaines de caractères suivantes {"opaque", "window", "transparent"}', $wmode);
+			throw new TimelineOptionException(array('wmode', 'une des chaines de caracteres suivantes {"opaque", "window", "transparent"}', $wmode));
 		}
 		
 		return $this;
@@ -873,7 +873,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->zoomEndTime = (int) $unix_timestamp;
 			$this->setModified('zoomEndTime');
 		} else {
-			$this->throw_exception('zoomEndTime', 'un entier (timestamp UNIX)', $unix_timestamp);
+			throw new TimelineOptionException(array('zoomEndTime', 'un entier (timestamp UNIX)', $unix_timestamp));
 		}
 		
 		return $this;
@@ -895,7 +895,7 @@ class TimelineGraphOptions extends TimelineOptions {
 			$this->zoomStartTime = (int) $unix_timestamp;
 			$this->setModified('zoomStartTime');
 		} else {
-			$this->throw_exception('zoomStartTime', 'un entier (timestamp UNIX)', $unix_timestamp);
+			throw new TimelineOptionException(array('zoomStartTime', 'un entier (timestamp UNIX)', $unix_timestamp));
 		}
 		
 		return $this;

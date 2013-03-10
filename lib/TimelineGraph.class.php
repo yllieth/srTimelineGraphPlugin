@@ -277,8 +277,4 @@ class TimelineGraph extends GraphConf {
 		return new TimelineGraph;
 	}
 }
-
-
-
-class TimelineGraphException extends sfException{}
 ?>

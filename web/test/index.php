@@ -16,7 +16,7 @@
 
 	$graphConf = TimelineGraphOptions::create()
 		->setScaleColumns(array(0,1))
-		->setScaleType('allmaximized')
+		->setScaleType('allmaimized')
 		->setDisplayAnnotations(false)
 		->removeOption('zoomStartTime');
 
