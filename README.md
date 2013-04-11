@@ -4,7 +4,10 @@ README
 Ce plugin permet de configurer simplement un graphique qui sera généré par 
 l'API Google [annotatedTimeline](https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr).
 
+[Voir sur GitHub](https://github.com/yllieth/srTimelineGraphPlugin.git)
 
+> version stable : 1.0
+> dernière modification : 11 avril 2013
 
 Préambule
 ---------
@@ -16,7 +19,7 @@ Un exemple est fourni dans le fichier `web/test/index.php`.
 Ce fichier est un exemple destiné à être utilisé en l'état afin de faire des tests.
 
 Un des intérêts de ce plugin réside dans l'autocomplétion des options proposées par Google.
-La documentation est reprise telle quelle de la documentation de l'API
+La documentation est reprise telle quelle de la documentation de l'API.
 
 
 Utilisation au sein d'un projet Symfony
@@ -24,9 +27,10 @@ Utilisation au sein d'un projet Symfony
 
 ## Installation
 
-### Via PEAR
-### Via Symfony
-### Via une copie manuelle des sources
+### Via git
+``` sh
+git clone git://github.com/yllieth/srTimelineGraphPlugin.git <path-to-clone>
+```
 
 ## Exemple d'utilisation
 
