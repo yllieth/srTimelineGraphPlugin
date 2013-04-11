@@ -145,11 +145,17 @@ class TimelineGraph extends GraphConf {
 	 * 
 	 * @throws TimelineGraphException si on ne sait pas dans quelle(s) div(s) insérer le graphique (et le tableau de valeurs)
 	 * @author Sylvain
+	 * @MAJ by Sylvain {11/04/2013}: si aucune option du graphique n'est présente, on charge les options par défaut
 	 */
 	public function render()
 	{
 		if ($this->hasGraphDivId() === false && $this->hasTableDivId() === false) {
 			throw new TimelineGraphException("Ne pas oublier de faire appel à load_google_javascripts pour définir les <div> qui recevront le graphique et / ou la table de données");
+		}
+		
+		// chargement des options par défaut pour configurer le graph
+		if ($this->hasGraphOptions() === false) {
+			$this->setGraphOptions(TimelineGraphOptions::create());
 		}
 		
 		$js_graph_div = (isset($this->graphDivId)) ? $this->getGraphDivId() : 'null';
