@@ -379,7 +379,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	public function setColors(Array $liste_de_couleurs)
 	{
 		if (is_array($liste_de_couleurs)) {
-			$this->colors = (int) $liste_de_couleurs;
+			$this->colors = $liste_de_couleurs;
 			$this->setModified('colors');
 		} else {
 			throw new TimelineOptionException(array('colors', "un tableau contenant des noms de couleurs HTML valides", $liste_de_couleurs));
