@@ -765,7 +765,7 @@ class TimelineGraphOptions extends TimelineOptions {
 	 */
 	public function setScaleColumns(Array $colonnes)
 	{
-		if (is_array($colonnes) && count($colonnes) < 3) {
+		if (is_array($colonnes) && count($colonnes) <= 3) {
 			$this->scaleColumns = $colonnes;
 			$this->setModified('scaleColumns');
 		} else {
