@@ -91,18 +91,18 @@ function timelineValues(datas, divTab){
 				options[option]=datas.tableConfs[option];
 			}
 		}
+		
+		if ((option === "formatter")) {
+			// formatter des nombres 
+			var number_formatter = new google.visualization.NumberFormat(datas.tableConfs[option]);
+			var i = 1;
+			for(var courbe in datas.values){
+				number_formatter.format(data,i);
+				i++;
+			}
+		}
 	}
 	
-	
-	// formatter des nombres 
-	var number_formatter = new google.visualization.NumberFormat({fractionDigits: 0});
-	var i = 1
-	for(var courbe in datas.values){
-		number_formatter.format(data,i);
-		i++;
-	}
-	
-
 	// tableau de valeurs
 	var table = new google.visualization.Table(document.getElementById(divTab));
 	table.draw(data, options);

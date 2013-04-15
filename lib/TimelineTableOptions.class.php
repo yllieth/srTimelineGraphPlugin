@@ -98,6 +98,10 @@ class TimelineTableOptions extends TimelineOptions {
 	 */
 	private $width = null;
 	
+	// ----------------------------------------------- OPTIONS PERSONNELLES ---
+	
+	private $formatter = null;
+	
 	
 	// ########################################################################
 	// ###                           CONSTRUCTEUR                           ###
@@ -113,6 +117,7 @@ class TimelineTableOptions extends TimelineOptions {
 	public function __construct()
 	{
 		$this->setPageSize(7); // même hauteur que le graphique
+		$this->setFormatter(array('fractionDigits' => 0));
 	}
 	
 	/**
@@ -166,7 +171,9 @@ class TimelineTableOptions extends TimelineOptions {
 			'sortAscending',
 			'sortColumn',
 			'startPage',
-			'width'
+			'width',
+			// ------------------------
+			'formatter',
 		);
 	}
 	
@@ -568,6 +575,51 @@ class TimelineTableOptions extends TimelineOptions {
 			$this->setModified('width');
 		} else {
 			throw new TimelineOptionException(array('width', "un entier", $width));
+		}
+		
+		return $this;
+	}
+	
+	// ----------------------------------------------- OPTIONS PERSONNELLES ---
+
+	/**
+	 * Définit le formatter des nombres de la série.
+	 * 
+	 * Les clefs du tableau peuvent prendre les valeurs suivantes :
+	 * <ul>
+	 *  <li><code>decimalSymbol</code> : A character to use as the decimal marker. The default is a dot (.).</li>
+	 *  <li><code>fractionDigits</code> : A number specifying how many digits to display after the decimal. The default is 2. If you specify more digits than the number contains, it will display zeros for the smaller values. Truncated values will be rounded (5 rounded up).</li>
+	 *  <li><code>groupingSymbol</code> : A character to be used to group digits to the left of the decimal into sets of three. Default is a comma (,).</li>
+	 *  <li><code>negativeColor</code> : The text color for negative values. No default value. Values can be any acceptable HTML color value, such as "red" or "#FF0000".</li>
+	 *  <li><code>negativeParens</code> : A boolean, where true indicates that negative values should be surrounded by parentheses. Default is true.</li>
+	 *  <li><code>pattern</code> : A format string. When provided, all other options are ignored, except <code>negativeColor</code>. The format string is a subset of the ICU pattern set. For instance, {pattern:'#,###%'} will result in output values "1,000%", "750%", and "50%" for values 10, 7.5, and 0.5.</li>
+	 *  <li><code>prefix</code> : A string prefix for the value, for example "$".</li>
+	 *  <li><code>suffix</code> : A string suffix for the value, for example "%".</li>
+	 * </ul>
+	 * 
+	 * @see https://developers.google.com/chart/interactive/docs/reference#numberformatter
+	 * @see http://icu-project.org/apiref/icu4c/classDecimalFormat.html#_details
+	 * 
+	 * @param  array $formatter Exemple <code>array('fractionDigits' => 2)</code>
+	 * @return TimelineTableOptions <em>fluent interface</em>
+	 * @throws TimelineOptionException
+	 * @author Sylvain {15/04/2013}
+	 */
+	public function setFormatter($formatters) 
+	{
+		$allowedOptions = array('decimalSymbol', 'fractionDigits', 'groupingSymbol', 'negativeColor', 'negativeParens', 'pattern', 'prefix', 'suffix');
+		
+		if (is_array($formatters)) {
+			$formatterNames = array_keys($formatters);
+			foreach ($formatterNames as $name){
+				if (!is_string($name) || !in_array($name, $allowedOptions)) {
+					throw new TimelineOptionException(array('formatter', "un tableau avec une ou plusieurs des clefs suivantes : " . implode(', ', $allowedOptions), $formatters));
+				}
+			}
+			$this->formatter = $formatters;
+			$this->setModified('formatter');
+		} else {
+			throw new TimelineOptionException(array('formatter', "un tableau avec une ou plusieurs des clefs suivantes : " . implode(', ', $allowedOptions), $formatters));
 		}
 		
 		return $this;

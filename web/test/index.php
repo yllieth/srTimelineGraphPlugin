@@ -22,7 +22,8 @@
 	
 	$tableConf = TimelineTableOptions::create()
 		->setSortAscending(false)
-		->setWidth('400px');
+		->setWidth('400px')
+		->setFormatter(array('fractionDigits' => 2));
 
 	$graph = TimelineGraph::create()
 		->setGraphOptions($graphConf)
