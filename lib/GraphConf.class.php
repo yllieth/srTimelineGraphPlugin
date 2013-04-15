@@ -73,6 +73,7 @@ abstract class GraphConf{
 	protected function getGraphOptions() { return $this->graphOptions; }
 	public    function setGraphOptions($graphOptions) { $this->graphOptions = $graphOptions; return $this; }
 	
+	protected function hasTableOptions() { return count($this->getTableOptions()) > 0; }
 	protected function getTableOptions() { return $this->tableOptions; }
 	public    function setTableOptions($tableOptions)  { $this->tableOptions = $tableOptions; return $this; }
 	

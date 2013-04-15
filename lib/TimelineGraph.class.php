@@ -158,6 +158,11 @@ class TimelineGraph extends GraphConf {
 			$this->setGraphOptions(TimelineGraphOptions::create());
 		}
 		
+		// chargement des options par défaut pour configurer le tableau de valeurs
+		if ($this->hasTableOptions() === false) {
+			$this->setTableOptions(TimelineTableOptions::create());
+		}
+		
 		$js_graph_div = (isset($this->graphDivId)) ? $this->getGraphDivId() : 'null';
 		$js_table_div = (isset($this->tableDivId)) ? $this->getTableDivId() : 'null';
 		$js_datas = json_encode($this->renderConfig());
