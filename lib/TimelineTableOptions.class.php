@@ -112,7 +112,7 @@ class TimelineTableOptions extends TimelineOptions {
 	 */
 	public function __construct()
 	{
-		
+		$this->setPageSize(7); // même hauteur que le graphique
 	}
 	
 	/**
