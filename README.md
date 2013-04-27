@@ -1,29 +1,27 @@
 README
 ======
 
-Ce plugin permet de configurer simplement un graphique qui sera généré par 
+Ce plugin permet de configurer simplement en PHP un graphique qui sera généré par 
 l'API Google [annotatedTimeline](https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr).
 
 [Voir sur GitHub](https://github.com/yllieth/srTimelineGraphPlugin.git)
 
-> version stable : 1.0
-> dernière modification : 11 avril 2013
-
-Préambule
----------
-
-Ce plugin est initialiement écrit pour être intégrer dans un projet Symfony 1.x.
+Cette bibilothèque est initialiement écrite pour être intégrer dans un projet Symfony 1.x.
 Cependant, la seule dépendance avec ce Framework est l'utilisation de la classe `sfException`.
+Pour passer outre cette dépendance, il suffit de déclarer une classe `sfException` qui hérite de `Exception` : `class sfException extends Exception {}`
 
 Un exemple est fourni dans le fichier `web/test/index.php`.
 Ce fichier est un exemple destiné à être utilisé en l'état afin de faire des tests.
 
-Un des intérêts de ce plugin réside dans l'autocomplétion des options proposées par Google.
-La documentation est reprise telle quelle de la documentation de l'API.
+Avantages
+---------
 
+Une fois installée, cette bibliothèque facilite la configuration des graphiques proposés par l'(API google)[https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline?hl=fr].
+L'autocomplétion de votre IDE préféré vous proposera les différentes options possibles avec leur documentation.
 
-Utilisation au sein d'un projet Symfony
----------------------------------------
+De plus, elle ajoute un certain nombre de contrôle évitant des erreurs de développement.
+Par exemple, si vous voulez utiliser l'option `maximized` et que vous l'orthographiez mal, 
+une exception sera levée en vous proposant les orthographes correctes gérées par google.
 
 ## Installation
 
